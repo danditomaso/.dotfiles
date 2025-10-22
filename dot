@@ -173,7 +173,7 @@ install_packages() {
     print_info "Installing base packages..."
     
     # Try to install all packages at once first
-    if brew bundle --file="${PACKAGES_DIR}/bundle" --no-lock; then
+    if brew bundle --file="${PACKAGES_DIR}/bundle"; then
         print_success "All base packages installed successfully"
     else
         print_warning "Some packages failed to install, trying individually..."
@@ -226,7 +226,7 @@ install_packages() {
     # Work packages
     if [[ -f "${PACKAGES_DIR}/bundle.work" ]] && confirm "Install work-specific packages?" "n"; then
         print_info "Installing work packages..."
-        if brew bundle --file="${PACKAGES_DIR}/bundle.work" --no-lock; then
+        if brew bundle --file="${PACKAGES_DIR}/bundle.work"; then
             print_success "Work packages installed successfully"
         else
             print_warning "Some work packages failed to install"
@@ -404,47 +404,47 @@ generate_ssh_key() {
     fi
 }
 
-install_font() {
-    print_step "Installing MonoLisa font"
+# install_font() {
+#     print_step "Installing MonoLisa font"
     
-    if [[ ! -f "$GITHUB_KEY_PATH" ]]; then
-        print_warning "GitHub SSH key not found. Skipping font installation"
-        return 0
-    fi
+#     if [[ ! -f "$GITHUB_KEY_PATH" ]]; then
+#         print_warning "GitHub SSH key not found. Skipping font installation"
+#         return 0
+#     fi
     
-    if ! confirm "Have you added the SSH key to your GitHub account?" "n"; then
-        print_warning "Skipping font installation"
-        return 0
-    fi
+#     if ! confirm "Have you added the SSH key to your GitHub account?" "n"; then
+#         print_warning "Skipping font installation"
+#         return 0
+#     fi
     
-    local font_temp_dir
-    font_temp_dir=$(mktemp -d)
-    local font_install_dir="${HOME}/Library/Fonts"
+#     local font_temp_dir
+#     font_temp_dir=$(mktemp -d)
+#     local font_install_dir="${HOME}/Library/Fonts"
     
-    print_info "Cloning font repository..."
-    if GIT_SSH_COMMAND="ssh -i $GITHUB_KEY_PATH -o IdentitiesOnly=yes" git clone "$FONT_REPO_URL" "$font_temp_dir"; then
-        print_success "Repository cloned successfully"
+#     print_info "Cloning font repository..."
+#     if GIT_SSH_COMMAND="ssh -i $GITHUB_KEY_PATH -o IdentitiesOnly=yes" git clone "$FONT_REPO_URL" "$font_temp_dir"; then
+#         print_success "Repository cloned successfully"
         
-        mkdir -p "$font_install_dir"
-        print_info "Installing font files..."
+#         mkdir -p "$font_install_dir"
+#         print_info "Installing font files..."
         
-        local font_count=0
-        while IFS= read -r -d '' font_file; do
-            cp "$font_file" "$font_install_dir/"
-            ((font_count++))
-        done < <(find "$font_temp_dir" -name '*.otf' -print0)
+#         local font_count=0
+#         while IFS= read -r -d '' font_file; do
+#             cp "$font_file" "$font_install_dir/"
+#             ((font_count++))
+#         done < <(find "$font_temp_dir" -name '*.otf' -print0)
         
-        if [[ $font_count -gt 0 ]]; then
-            print_success "Installed $font_count font files"
-        else
-            print_warning "No font files found in repository"
-        fi
-    else
-        print_error "Failed to clone font repository"
-    fi
+#         if [[ $font_count -gt 0 ]]; then
+#             print_success "Installed $font_count font files"
+#         else
+#             print_warning "No font files found in repository"
+#         fi
+#     else
+#         print_error "Failed to clone font repository"
+#     fi
     
-    rm -rf "$font_temp_dir"
-}
+#     rm -rf "$font_temp_dir"
+# }
 
 setup_fish_shell() {
     print_step "Setting up Fish shell"

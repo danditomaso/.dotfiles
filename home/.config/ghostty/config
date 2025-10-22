@@ -1,14 +1,14 @@
 # Ghostty theme
-theme = Catppuccin Macchiato
+theme = Catppuccin Mocha
 
 # Shell integrations
 shell-integration = fish
 quit-after-last-window-closed = true
 
 # Font family
-font-family = MonoLisa
+font-family = JetBrains Mono
 font-style = Regular
-font-style-italic = Regular Italic
+font-style-italic = Italic
 font-style-bold = Bold
 font-style-bold-italic = Bold Italic
 
@@ -16,13 +16,13 @@ font-style-bold-italic = Bold Italic
 font-size = 20
 
 # Opacity of split windows
-unfocused-split-opacity = 0.97  
+unfocused-split-opacity = 0.97
 
 # Set the background-opacity to be fully opaque
 background-opacity = 1.0
 
 # Cursor style
-cursor-style-blink = true
+cursor-style-blink = false
 
 # Clipboard settings
 clipboard-read = allow
@@ -36,6 +36,7 @@ macos-titlebar-proxy-icon = hidden
 title = ghostty 
 
 # Window settings
+window-decoration = false
 window-width = 90
 window-height = 30
 window-colorspace = display-p3

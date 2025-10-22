@@ -16,6 +16,7 @@
 [core]
 	editor = "nvim"
 	fsmonitor = true
+	untrackedcache = true
 
 [fetch]
 	prune = true
@@ -46,10 +47,9 @@
 	gpgSign = true
 
 [user]
-	email = "dillon.mulroy@gmail.com"
-	name = "Dillon Mulroy"
-	signingKey = "~/.ssh/key.pub"
-	signingkey = "~/.ssh/key.pub"
+	email = "dan.ditomaso@gmail.com"
+	name = "Dan D"
+	signingKey = "~/.ssh/id_ed25519_github.pub"
 
 [includeIf "gitdir:~/Code/work/"]
 	path = "~/.config/git/work_config"

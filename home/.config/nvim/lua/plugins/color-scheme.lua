@@ -30,8 +30,8 @@ return {
 					which_key = true,
 				},
 			})
-			local palette = require("catppuccin.palettes").get_palette("macchiato")
-			vim.cmd.colorscheme("catppuccin-macchiato")
+			local palette = require("catppuccin.palettes").get_palette("mocha")
+			vim.cmd.colorscheme("catppuccin-mocha")
 
 			-- Telescope highlights to match editor background
 			vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = palette.base })
