@@ -14,7 +14,7 @@ return {
 			{ "j-hui/fidget.nvim" },
 		},
 		config = function()
-			local map_lsp_keybinds = require("dmmulroy.keymaps").map_lsp_keybinds
+			local map_lsp_keybinds = require("dand.keymaps").map_lsp_keybinds
 
 
 			-- on_attach: call your custom keymap binding function
