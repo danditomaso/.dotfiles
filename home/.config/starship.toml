@@ -1,3 +1,6 @@
+# Increase timeout for git commands to prevent timeout warnings
+command_timeout = 2000
+
 [buf]
 disabled = true
 
