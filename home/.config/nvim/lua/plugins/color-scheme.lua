@@ -33,19 +33,60 @@ return {
 			local palette = require("catppuccin.palettes").get_palette("mocha")
 			vim.cmd.colorscheme("catppuccin-mocha")
 
+			-- Pure black background to match VS Code customizations
+			local black = "#000000"
+
+			-- Core editor backgrounds
+			vim.api.nvim_set_hl(0, "Normal", { fg = palette.text, bg = black })
+			vim.api.nvim_set_hl(0, "NormalNC", { fg = palette.text, bg = black })
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = black })
+			vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.blue, bg = black })
+			vim.api.nvim_set_hl(0, "SignColumn", { bg = black })
+			vim.api.nvim_set_hl(0, "FoldColumn", { bg = black })
+			vim.api.nvim_set_hl(0, "LineNr", { bg = black })
+			vim.api.nvim_set_hl(0, "CursorLineNr", { bg = black })
+
+			-- Statusline and tabline backgrounds
+			vim.api.nvim_set_hl(0, "StatusLine", { bg = black })
+			vim.api.nvim_set_hl(0, "StatusLineNC", { bg = black })
+			vim.api.nvim_set_hl(0, "TabLine", { bg = black })
+			vim.api.nvim_set_hl(0, "TabLineFill", { bg = black })
+
+			-- Sidebar/tree backgrounds
+			vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = black })
+			vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = black })
+
 			-- Telescope highlights to match editor background
-			vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = palette.blue, bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = palette.blue, bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = palette.blue, bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = palette.blue, bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopeTitle", { fg = palette.mauve, bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = palette.mauve, bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = palette.mauve, bg = palette.base })
-			vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = palette.mauve, bg = palette.base })
+			vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = black })
+			vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = palette.blue, bg = black })
+			vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = black })
+			vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = palette.blue, bg = black })
+			vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = black })
+			vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = palette.blue, bg = black })
+			vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = black })
+			vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = palette.blue, bg = black })
+			vim.api.nvim_set_hl(0, "TelescopeTitle", { fg = palette.mauve, bg = black })
+			vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = palette.mauve, bg = black })
+			vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = palette.mauve, bg = black })
+			vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = palette.mauve, bg = black })
+
+			-- ErrorLens-style diagnostic virtual text colors (matching VS Code)
+			vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", {
+				fg = "#ffc600",
+				bg = black
+			})
+			vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", {
+				fg = palette.red,
+				bg = black
+			})
+			vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", {
+				fg = palette.yellow,
+				bg = black
+			})
+			vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", {
+				fg = palette.blue,
+				bg = black
+			})
 
 			-- Hide all semantic highlights until upstream issues are resolved (https://github.com/catppuccin/nvim/issues/480)
 			for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do

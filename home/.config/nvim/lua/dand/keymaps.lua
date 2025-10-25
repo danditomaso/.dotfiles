@@ -173,6 +173,10 @@ vim.keymap.set("n", "<leader>cp", ":cprevious<cr>zz", { desc = "Go to previous q
 vim.keymap.set("n", "<leader>co", ":copen<cr>zz", { desc = "Open quickfix list and center" })
 vim.keymap.set("n", "<leader>cc", ":cclose<cr>zz", { desc = "Close quickfix list" })
 
+-- Window splits
+vim.keymap.set("n", "<leader>|", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>-", "<C-w>s", { desc = "Split window horizontally" })
+
 -- Maximizer toggle and window resize
 vim.keymap.set("n", "<leader>m", ":MaximizerToggle<cr>", { desc = "Toggle window maximization" })
 vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Equalize split window sizes" })

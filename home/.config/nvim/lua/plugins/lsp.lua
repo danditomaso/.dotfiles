@@ -101,6 +101,15 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
+			-- Disable conflicting TypeScript servers (we use typescript-tools instead)
+			local disabled_servers = { "vtsls", "denols", "ts_ls", "tsserver" }
+			for _, server in ipairs(disabled_servers) do
+				require("lspconfig")[server].setup({
+					autostart = false,
+					single_file_support = false,
+				})
+			end
+
 			-- Setup each LSP server. We merge in any server-specific capabilities by passing
 			-- the existing config.capabilities to blink.cmp.get_lsp_capabilities.
 			for name, config in pairs(servers) do

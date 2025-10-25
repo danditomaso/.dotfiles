@@ -91,3 +91,6 @@ vim.diagnostic.config({
 	-- virtual_text = { current_line = true },
 	virtual_lines = false,
 })
+
+-- Silence LSP v3 deprecation warnings
+vim.g.deprecation_warnings = false
