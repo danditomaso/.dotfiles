@@ -14,8 +14,15 @@ return {
 		config = function()
 			require("oil").setup({
 				-- use_default_keymaps = false,
+				confirmation = {
+					border = "rounded",
+				},
+				float = {
+					border = "rounded",
+				},
 				keymaps = {
-					["<C-_>"] = { "actions.select", opts = { vertical = true } },
+					["<C-l>"] = false,
+					["<C-r>"] = "actions.refresh",
 				},
 				view_options = {
 					show_hidden = true,

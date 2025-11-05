@@ -49,7 +49,7 @@
 [user]
 	email = "dan.ditomaso@gmail.com"
 	name = "Dan D"
-	signingKey = "~/.ssh/id_ed25519_github.pub"
+	signingkey = /Users/dand/.ssh/id_ed25519_github_new.pub
 
 [includeIf "gitdir:~/Code/work/"]
 	path = "~/.config/git/work_config"

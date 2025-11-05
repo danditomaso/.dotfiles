@@ -1,4 +1,4 @@
 [user]
-	email = "dillon.mulroy@vercel.com"
-	name = "Dillon Mulroy"
-	signingkey = "~/.ssh/key.pub"
+	email = "dan.ditomaso@TBD.com"
+	name = "Dan Ditomaso"
+	signingkey = "~/.ssh/<file here>.pub"
