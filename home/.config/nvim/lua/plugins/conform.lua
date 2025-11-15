@@ -40,11 +40,12 @@ return {
 				}
 			end,
 			formatters_by_ft = {
+				go = { "gopls" },
 				javascript = { "biome" },
+				lua = { "stylua" },
+				svelte = { "prettierd", "prettier " },
 				typescript = { "biome" },
 				typescriptreact = { "biome" },
-				svelte = { "prettierd", "prettier " },
-				lua = { "stylua" },
 			},
 		},
 	},

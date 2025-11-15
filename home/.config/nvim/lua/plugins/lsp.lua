@@ -27,13 +27,22 @@ return {
 				bashls = {},
 				biome = {},
 				cssls = {},
-				gleam = {
-					settings = { inlayHints = true },
-				},
 				eslint = {
 					autostart = false,
 					cmd = { "vscode-eslint-language-server", "--stdio", "--max-old-space-size=12288" },
 					settings = { format = false },
+				},
+				gopls = {
+					settings = {
+						gopls = {
+							analyses = {
+								unusedparams = true,
+								shadow = true,
+							},
+							staticcheck = true,
+							gofumpt = true,
+						},
+					},
 				},
 				html = {},
 				jsonls = {},
@@ -53,15 +62,6 @@ return {
 					},
 				},
 				marksman = {},
-				ocamllsp = {
-					manual_install = true,
-					cmd = { "dune", "exec", "ocamllsp" },
-					settings = {
-						codelens = { enable = true },
-						inlayHints = { enable = true },
-						syntaxDocumentation = { enable = true },
-					},
-				},
 				nil_ls = {},
 				pyright = {},
 				sqlls = {},
@@ -80,7 +80,7 @@ return {
 				stylua = {},
 			}
 
-			local manually_installed_servers = { "ocamllsp", "gleam", "rust_analyzer" }
+			local manually_installed_servers = { "rust_analyzer" }
 			local mason_tools_to_install = vim.tbl_keys(vim.tbl_deep_extend("force", {}, servers, formatters))
 			local ensure_installed = vim.tbl_filter(function(name)
 				return not vim.tbl_contains(manually_installed_servers, name)
