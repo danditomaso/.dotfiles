@@ -1,0 +1,2 @@
+brew "kubernetes-cli"
+brew "cloudflare-wrangler"
