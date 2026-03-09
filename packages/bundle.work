@@ -1,2 +1,7 @@
+brew "azure-cli"
 brew "kubernetes-cli"
 brew "cloudflare-wrangler"
+brew "dotnet"
+
+cask "microsoft-powerplatform-cli"
+cask "microsoft-azure-storage-explorer"
